@@ -95,4 +95,10 @@ WORKDIR /usr/ns3
 
 ENV NS_LOG="Bgp=all|prefix_all:BgpLog=all|prefix_all"
 
-CMD ["/bin/bash", "-c", "waf --run su"]
+RUN apt-get update && apt-get install uml-utilities -y
+
+ADD script.sh /usr/ns3/
+
+RUN chmod +x /usr/ns3/script.sh
+
+CMD ["/bin/bash", "-c", "./script.sh"]

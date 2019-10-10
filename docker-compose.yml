@@ -5,14 +5,14 @@ services:
     build:
       context: nysernet/
     volumes:
-      - "/home/tthoma17/work/openvpn1:/etc/openvpn/"
+      - "/home/tthoma17/work/openvpn2:/etc/openvpn/"
       - "/tmp/nets:/tmp/nets"
     cap_add:
       - NET_ADMIN
     devices:
       - "/dev/net:/dev/net"
     ports:
-      - "1200:1194"
+      - "1200:1194/udp"
     environment:
       NS_LOG: "Bgp=all|prefix_all:BgpLog=all|prefix_all"
     networks:
@@ -23,14 +23,14 @@ services:
       context: su/
     volumes:
     volumes:
-      - "/home/tthoma17/work/openvpn1:/etc/openvpn/"
+      - "/home/tthoma17/work/openvpn2:/etc/openvpn/"
       - "/tmp/nets:/tmp/nets"
     devices:
       - "/dev/net:/dev/net"
     cap_add:
       - NET_ADMIN
     ports:
-      - "1201:1194"
+      - "1201:1194/udp"
     sysctls:
       - net.ipv4.ip_forward=1
     environment:
@@ -44,14 +44,14 @@ services:
     build:
       context: google/
     volumes:
-      - "/home/tthoma17/work/openvpn1:/etc/openvpn/"
+      - "/home/tthoma17/work/openvpn2:/etc/openvpn/"
       - "/tmp/nets:/tmp/nets"
     devices:
       - "/dev/net:/dev/net"
     cap_add:
       - NET_ADMIN
     ports:
-      - "1202:1194"
+      - "1202:1194/udp"
     sysctls:
       - net.ipv4.ip_forward=1
     environment:

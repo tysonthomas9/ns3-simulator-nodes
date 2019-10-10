@@ -34,7 +34,7 @@ int main (void) {
     ipv4_tap_su->SetMetric (devid_dev_tap_su_tap_su, 1);
     ipv4_tap_su->SetUp (devid_dev_tap_su_tap_su);
     // end netdevice config for tap_su, device tap_su.
-    tapBridge.SetAttribute ("DeviceName", StringValue ("tap0"));
+    tapBridge.SetAttribute ("DeviceName", StringValue ("tap1"));
     tapBridge.SetAttribute ("Mode", StringValue ("UseBridge"));
     tapBridge.Install (tap_su, dev_tap_su_tap_su);
     // end tap for net su.
